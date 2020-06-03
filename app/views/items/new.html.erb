@@ -1,0 +1,9 @@
+<h1>Create new item</h1>
+  <%= form_for @item do |f| %>
+    <p>Ціна: <br/><%= f.text_field :price %></p>
+    <p>Назва: <br/><%= f.text_field :name %></p>
+    <p>Опис: <br/><%= f.text_field :description %></p>
+    <p>Вага: <br/><%= f.text_field :weight %></p>
+
+    <p><%= f.submit "Створити товар" %></p>
+  <% end %>

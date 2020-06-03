@@ -1,0 +1,25 @@
+<h1>Items</h1>
+
+<% if @items.empty? %>
+<b>No items in the shop</b>
+<% else %>
+<table>
+    <tr> 
+        <th>item id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Видалення</th>
+        <th>Рейтинг</th>
+    </tr>  
+    <% end %>
+<% @items.each do |i| %>
+    <tr> 
+        <td><%= i.id %></td>
+        <td><%=link_to i.name, item_path(i) %></td>
+        <td><%= i.price %> грн</td>
+        <td><%= link_to "Видалити", i, method: :delete, 
+            data: {confirm: "Ви впевнені, що хочете видалити?"} %></td>
+        <td>Рейтинг: <%= i.votes_count %>, <%= link_to "+", upvote_item_path(i)%></td>
+    </tr>
+
+<% end %>
